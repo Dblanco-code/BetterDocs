@@ -1,0 +1,16 @@
+/* Main.css */
+
+.container {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f5f5f5;
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  p {
+    color: #666;
+  }
+  
