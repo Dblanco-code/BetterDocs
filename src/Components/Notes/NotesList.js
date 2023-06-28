@@ -1,7 +1,7 @@
 import React from 'react';
-import '../../Css/noteList.css'; // Import the CSS file
+import '../../Css/notesList.css'; // Import the CSS file
 
-const NoteList = ({ notes }) => {
+const NotesList = ({ notes }) => {
   return (
     <div className="note-list-container">
       <h2>Your Notes:</h2>
@@ -17,4 +17,4 @@ const NoteList = ({ notes }) => {
   );
 };
 
-export default NoteList;
+export default NotesList;

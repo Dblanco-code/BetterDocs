@@ -1,8 +1,4 @@
-Better Docs
-An alternative to Google Docs
+Better Docs | Version 0.2.0
+An alternative to Google Docs - made with Create-React-App and Parse.
 
-By Deep and Dominick
-
-npm start
-
-version 0.2.0
+Authors: Deep Brahmbhatt, Dominick Blanco

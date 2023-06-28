@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Parse from 'parse';
 
-const Note = () => {
+const Notes = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
@@ -36,31 +36,33 @@ const Note = () => {
   };
 
   return (
-    <div className="container">
-      <h2>Make a Note</h2>
-      <div>
+    <section>
+      <div className="container">
+        <h2>Make a Note</h2>
         <div>
-          <input
-            type="text"
-            placeholder="Title"
-            value={title}
-            onChange={handleTitleChange}
-          />
+          <div>
+            <input
+              type="text"
+              placeholder="Title"
+              value={title}
+              onChange={handleTitleChange}
+            />
+          </div>
+          <div>
+            <textarea
+              placeholder="Content"
+              value={content}
+              onChange={handleContentChange}
+            ></textarea>
+          </div>
+          <button onClick={handleSubmit}>Submit</button>
         </div>
-        <div>
-          <textarea
-            placeholder="Content"
-            value={content}
-            onChange={handleContentChange}
-          ></textarea>
-        </div>
-        <button onClick={handleSubmit}>Submit</button>
+        {successMessage && <p className="success-message">{successMessage}</p>}
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
       </div>
-      {successMessage && <p className="success-message">{successMessage}</p>}
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-    </div>
+    </section>
   );
 };
 
-export default Note;
+export default Notes;
 
