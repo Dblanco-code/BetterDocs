@@ -6,6 +6,7 @@ import Footer from "./Footer/Footer.js";
 
 export default function Components() {
     return (
+        <div>
         <Router>
             <Routes>
                 <Route path="/" element={<Home />} />
@@ -13,5 +14,6 @@ export default function Components() {
             </Routes>
             <Footer />
         </Router>
+        </div>
     );
 }

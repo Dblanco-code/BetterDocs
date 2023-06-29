@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Parse from 'parse';
+import NotesList from './NotesList';
+import getNote from "../../Services/Notes"
 
 const Notes = () => {
   const [title, setTitle] = useState('');
@@ -35,6 +37,14 @@ const Notes = () => {
     }
   };
 
+  const [note, setNote] = useState([]);
+
+  useEffect(() => {
+    getNote().then((note) => {
+      setNote(note);
+    });
+  }, []);
+
   return (
     <section>
       <div className="container">
@@ -59,6 +69,9 @@ const Notes = () => {
         </div>
         {successMessage && <p className="success-message">{successMessage}</p>}
         {errorMessage && <p className="error-message">{errorMessage}</p>}
+      </div>
+      <div>
+        <NotesList notes={note} />
       </div>
     </section>
   );

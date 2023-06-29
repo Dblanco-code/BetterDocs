@@ -18,7 +18,7 @@ const Main = () => {
     <section>
       <div className="container">
         <h1>Better Docs</h1>
-        Google Docs, but better!
+        <p>Google Docs, but better!</p>
         {/* <Notes />
         <NotesList notes={note} /> */}
       </div>

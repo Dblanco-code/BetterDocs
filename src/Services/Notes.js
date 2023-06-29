@@ -1,5 +1,6 @@
 import Parse from 'parse';
 
+// READ operation - get info about note from Parse Note class
 const getNote = async() => {
     const Note = Parse.Object.extend('Note');
     const query = new Parse.Query(Note);
