@@ -5,10 +5,14 @@
 .note-list {
   list-style-type: none;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .note-item {
+  margin-right: 20px;
   margin-bottom: 20px;
+  flex: 0 0 auto;
 }
 
 .note-title {
@@ -21,3 +25,4 @@
   font-size: 14px;
   color: #777;
 }
+
