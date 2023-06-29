@@ -1,0 +1,31 @@
+/* userList.css */
+
+.user-list-container {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .user-list {
+    display: grid;
+    grid-gap: 10px;
+  }
+  
+  .user-item {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .user-name {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .user-email {
+    font-size: 14px;
+    color: #888;
+  }
+  

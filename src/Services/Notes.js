@@ -8,6 +8,7 @@ const getNote = async() => {
     // query.equalTo('objectId', 'xKue915KBG');
     try {
       const results = await query.find();
+      console.log('Users found:', results);
       return results;
       }
     catch (error) {
