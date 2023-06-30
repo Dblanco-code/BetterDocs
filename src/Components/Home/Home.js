@@ -1,5 +1,7 @@
 import "../../Css/home.css";
 
+// Returns the main page of the website
+
 const Main = () => {
   return (
     <section>

@@ -5,6 +5,8 @@ import Notes from "./Notes/Notes.js"
 import Footer from "./Footer/Footer.js";
 import Users from "./Users/Users.js";
 
+// This component initializes routing and routes from one module to another
+
 export default function Components() {
     return (
         <div>
