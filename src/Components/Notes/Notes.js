@@ -1,82 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Parse from 'parse';
 
 import {createNote, getAllNotes, removeNote} from "../../Services/Notes"
 import NotesList from './NotesList';
-
-/* const Notes = () => {
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const handleTitleChange = (event) => {
-    setTitle(event.target.value);
-  };
-
-  const handleContentChange = (event) => {
-    setContent(event.target.value);
-  };
-
-  const handleSubmit = async () => {
-    const NoteObject = Parse.Object.extend('Note');
-    const newNote = new NoteObject();
-    newNote.set('Title', title);
-    newNote.set('Content', content);
-
-    try {
-      await newNote.save();
-      console.log('Note created:', newNote);
-      setTitle('');
-      setContent('');
-      setSuccessMessage('Note successfully created!');
-      setErrorMessage('');
-    } catch (error) {
-      console.error('Error while creating Note:', error);
-      setSuccessMessage('');
-      setErrorMessage('Error while creating Note. Please try again.');
-    }
-  };
-
-  const [note, setNote] = useState([]);
-
-  useEffect(() => {
-    getNote().then((note) => {
-      setNote(note);
-    });
-  }, []);
-
-  return (
-    <section>
-      <div className="container">
-        <h2>Make a Note</h2>
-        <div>
-          <div>
-            <input
-              type="text"
-              placeholder="Title"
-              value={title}
-              onChange={handleTitleChange}
-            />
-          </div>
-          <div>
-            <textarea
-              placeholder="Content"
-              value={content}
-              onChange={handleContentChange}
-            ></textarea>
-          </div>
-          <button onClick={handleSubmit}>Submit</button>
-        </div>
-        {successMessage && <p className="success-message">{successMessage}</p>}
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
-      </div>
-      <div>
-        <NotesList notes={note} />
-      </div>
-    </section>
-  );
-}; */
 
 const Notes = () => {
   // Variables in the state to hold data
@@ -107,7 +32,8 @@ const Notes = () => {
         setAdd(false);
         // Add the newly created note to the notes array
         // to render the new list of notes (thru spread/concatination)
-        setLessons([...notes, newNote]);
+        setNotes([...notes, newNote]);
+        setSuccessMessage('Note successfully created!');
       });
     }
 
@@ -141,11 +67,11 @@ const Notes = () => {
       setTitle(event.target.value);
     };
 
-    // Handler to track changes to the title input text
+    // Handler to track changes to the content input text
     const onContentChangeHandler = (event) => {
       event.preventDefault();
       console.log(event.target.value);
-      // Continuously updating title to be added on submit
+      // Continuously updating content to be added on submit
       setContent(event.target.value);
     };
 
@@ -159,21 +85,22 @@ const Notes = () => {
                 type="text"
                 placeholder="Title"
                 value={title}
-                onChange={handleTitleChange}
+                onChange={onTitleChangeHandler}
               />
             </div>
             <div>
               <textarea
                 placeholder="Content"
                 value={content}
-                onChange={handleContentChange}
+                onChange={onContentChangeHandler}
               ></textarea>
             </div>
-            <button onClick={handleSubmit}>Submit</button>
+            <button type="submit" onClick={onClickHandler}>Create Note!</button>
           </div>
           {successMessage && <p className="success-message">{successMessage}</p>}
           {errorMessage && <p className="error-message">{errorMessage}</p>}
       </div>
+      <NotesList notes={notes} />
       </section>
     );
 }
