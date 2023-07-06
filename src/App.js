@@ -1,7 +1,8 @@
 import './App.css';
-import Parse from 'parse';
+import React from 'react';
 import Components from "./Components/Components.js";
 import * as Env from './environments';
+import Parse from 'parse';
 
 // Parse Initialization
 Parse.serverURL = Env.SERVER_URL;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import {createUser, getAllUsers, removeUser} from "../../Services/Users"
+import {createUser, getAllUsers, removeUser} from "../../Common/Services/Users"
 import UsersList from './UsersList';
 
 const Users = () => {
@@ -86,7 +86,7 @@ const Users = () => {
 
     return (
       <section>
-        <div className="container">
+        {/* <div className="container">
           <h2>Create a User</h2>
           <div>
             <div>
@@ -117,7 +117,7 @@ const Users = () => {
           </div>
           {successMessage && <p className="success-message">{successMessage}</p>}
           {errorMessage && <p className="error-message">{errorMessage}</p>}
-      </div>
+      </div> */}
       <UsersList users={users} />
       </section>
     );

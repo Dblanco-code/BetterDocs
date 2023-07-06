@@ -13,3 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - Parse backend functionality
  - React Routing
  - Parse Models for Note and User classes
+
+## [0.3.0] - 2023-07-06
+
+### Added
+ - Parse Service with authentication methods
+ - Login/Register components that utilize authentication methods from service
+ - ProtectedRoute component that handles all routes that should not be accessed without login
