@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import {createNote, getAllNotes, removeNote} from "../../Services/Notes"
+import {createNote, getAllNotes, removeNote} from "../../Common/Services/Notes"
 import NotesList from './NotesList';
 
 const Notes = () => {
