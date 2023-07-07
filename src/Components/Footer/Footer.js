@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"; // Import async linker from react-router-dom
-import "../../CSS/footer.css"; // Import the CSS file for the footer
+import "../../Css/footer.css"; // Import the CSS file for the footer
 
 // This component returns the footer for the website. Key word: RETURN.
 

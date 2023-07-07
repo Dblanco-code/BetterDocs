@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../CSS/notesList.css'; // Import the CSS file
+import '../../Css/notesList.css'; // Import the CSS file
 
 const NotesList = ({ notes }) => {
   return (
