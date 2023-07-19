@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { checkUser } from "../../Common/Services/AuthService";
-import "../../CSS/authmodel.css";
+import "../../Css/authmodel.css";
 
 const AuthModule = () => {
     const navigate = useNavigate();
@@ -17,17 +17,21 @@ const AuthModule = () => {
 
     return (
         <div className="auth-module">
-            <Link to="/auth/register">
-                <button className="auth-button">Register</button>
-            </Link>
-            <br />
-            <Link to="/auth/login">
-                <button className="auth-button">Login</button>
-            </Link>
-            <br />
-            <Link to="/auth/reset-password">
-                <button className="auth-button">Reset Password</button>
-            </Link> 
+            <li>
+              <Link to="/auth/register" >
+                  Register
+              </Link>
+            </li>
+            <li>
+              <Link to="/auth/login" >
+                  Login
+              </Link>
+            </li>
+            <li>
+              <Link to="/auth/reset-password" >
+                  Reset Password
+              </Link>
+            </li>
 
         </div>
     );

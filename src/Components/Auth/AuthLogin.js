@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { checkUser, loginUser } from "../../Common/Services/AuthService";
 import AuthForm from "./AuthForm";
 import { useNavigate } from "react-router-dom";
-import "../../CSS/authlogin.css";
+import "../../Css/authlogin.css";
 
 const AuthLogin = () => {
   const navigate = useNavigate();
