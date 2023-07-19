@@ -1,0 +1,26 @@
+.auth-login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .auth-login-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .reset-password-link {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  .reset-password-link a {
+    color: #2196f3;
+    text-decoration: none;
+  }
+  
+  .reset-password-link a:hover {
+    text-decoration: underline;
+  }
+  

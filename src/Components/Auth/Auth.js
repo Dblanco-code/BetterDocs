@@ -21,10 +21,14 @@ const AuthModule = () => {
                 <button className="auth-button">Register</button>
             </Link>
             <br />
-            <br />
             <Link to="/auth/login">
                 <button className="auth-button">Login</button>
             </Link>
+            <br />
+            <Link to="/auth/reset-password">
+                <button className="auth-button">Reset Password</button>
+            </Link> 
+
         </div>
     );
 }
