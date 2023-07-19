@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
-
 import {createNote, getAllNotes, removeNote} from "../../Common/Services/Notes"
 import NotesList from './NotesList';
 
 const Notes = () => {
   // Variables in the state to hold data
   const [notes, setNotes] = useState([]);
-  const [note, setNote] = useState([]);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage] = useState('');
 
   // UseEffect to run when the page loads to
   // obtain async data and render
@@ -99,7 +97,7 @@ const Notes = () => {
           </div>
           {successMessage && <p className="success-message">{successMessage}</p>}
           {errorMessage && <p className="error-message">{errorMessage}</p>}
-      </div>
+        </div>
       <NotesList notes={notes} />
       </section>
     );

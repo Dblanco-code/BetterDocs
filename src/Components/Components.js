@@ -9,6 +9,7 @@ import {
 import AuthModule from "./Auth/Auth";
 import AuthRegister from "./Auth/AuthRegister";
 import AuthLogin from "./Auth/AuthLogin";
+import AuthResetPassword from "./Auth/AuthResetPassword";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute.js";
 
 // App Component Imports
@@ -27,6 +28,7 @@ export default function Components() {
                 <Route path="/auth" element={<AuthModule />} />
                 <Route path="/auth/register" element={<AuthRegister />} />
                 <Route path="/auth/login" element={<AuthLogin />} />
+                <Route path="/auth/reset-password" element={<AuthResetPassword />} />
                 <Route path="/" element={<Home />} />
 
                 {/* Protected Routes */}
