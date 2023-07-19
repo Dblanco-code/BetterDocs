@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { checkUser } from "../../Common/Services/AuthService";
+import "../../CSS/protectedRoute.css";
 
-// You can pass props using the spread operator to throw them on an object if there are too many to break out
 const ProtectedRoute = ({ element: Component, ...rest }) => {
   console.log("element: ", Component);
   const navigate = useNavigate();
@@ -13,8 +13,9 @@ const ProtectedRoute = ({ element: Component, ...rest }) => {
     return <Component />;
   } else {
     return (
-      <div>
-        <p>Unauthorized!</p> <button onClick={goBackHandler}>Go Back.</button>
+      <div className="unauthorized-container">
+        <p>Unauthorized!</p>
+        <button onClick={goBackHandler}>Go Back</button>
       </div>
     );
   }
