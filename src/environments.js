@@ -1,5 +1,8 @@
 module.exports = {
-    APPLICATION_ID: "Zn47snmNlv9Zl0z7WWTj3y4HFY8HOLZtWitrp1Kh",
-    JAVASCRIPT_KEY: "Z8t1mr8aho1j8MjgVUo3HuN56CGaQshdFad2z48b",
-    SERVER_URL: "https://parseapi.back4app.com"
+    PARSE_APPLICATION_ID: "Zn47snmNlv9Zl0z7WWTj3y4HFY8HOLZtWitrp1Kh",
+    PARSE_JAVASCRIPT_KEY: "Z8t1mr8aho1j8MjgVUo3HuN56CGaQshdFad2z48b",
+    PARSE_SERVER_URL: "https://parseapi.back4app.com",
+    ALGOLIA_APPLICATION_ID: "9W3VNZQF07",
+    ALGOLIA_ADMIN_API_KEY: "4e0b49c604027101981c48ee1b902ed8",
+    ALGOLIA_INDEX_NAME: "notes"
 }
