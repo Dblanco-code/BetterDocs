@@ -1,4 +1,5 @@
 import React from "react";
+import "../../Css/authForm.css";
 
 const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
 
@@ -8,7 +9,6 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
     <div>
         <div className="form-group">
           <label>First Name</label>
-          <br />
           <input
             type="text"
             className="form-control"
@@ -16,13 +16,11 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
             value={user.firstName}
             onChange={onChange}
             name="firstName"
-            placeholder="first name"
             required
           />
         </div>
         <div className="form-group">
           <label>Last Name</label>
-          <br />
           <input
             type="text"
             className="form-control"
@@ -37,7 +35,6 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
         <div>
         <div className="form-group">
           <label>Email</label>
-          <br />
           <input
             type="email"
             className="form-control"
@@ -50,7 +47,6 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
         </div>{" "}
         <div className="form-group">
           <label>Password</label>
-          <br />
           <input
             type="password"
             className="form-control"

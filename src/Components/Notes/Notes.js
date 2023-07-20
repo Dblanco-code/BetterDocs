@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
-
-import {createNote, getAllNotes, removeNote} from "../../Common/Services/Notes"
+import {createNote, getAllNotes, removeNote, searchNotes} from "../../Common/Services/Notes"
 import NotesList from './NotesList';
 
 const Notes = () => {
   // Variables in the state to hold data
   const [notes, setNotes] = useState([]);
-  const [note, setNote] = useState([]);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage] = useState('');
 
   // UseEffect to run when the page loads to
   // obtain async data and render
@@ -59,21 +57,28 @@ const Notes = () => {
     setAdd(true);
   };
 
-    // Handler to track changes to the title input text
-    const onTitleChangeHandler = (event) => {
-      event.preventDefault();
-      console.log(event.target.value);
-      // Continuously updating title to be added on submit
-      setTitle(event.target.value);
-    };
+  // Handler to track changes to the title input text
+  const onTitleChangeHandler = (event) => {
+    event.preventDefault();
+    console.log(event.target.value);
+    // Continuously updating title to be added on submit
+    setTitle(event.target.value);
+  };
 
-    // Handler to track changes to the content input text
-    const onContentChangeHandler = (event) => {
-      event.preventDefault();
-      console.log(event.target.value);
-      // Continuously updating content to be added on submit
-      setContent(event.target.value);
-    };
+  // Handler to track changes to the content input text
+  const onContentChangeHandler = (event) => {
+    event.preventDefault();
+    console.log(event.target.value);
+    // Continuously updating content to be added on submit
+    setContent(event.target.value);
+  };
+
+  const [query, setQuery] = useState('');
+  const [results, setResults] = useState([]);
+  
+  const handleSearch = () => {
+    searchNotes(query).then(setResults);
+  };
 
     return (
       <section>
@@ -99,6 +104,20 @@ const Notes = () => {
           </div>
           {successMessage && <p className="success-message">{successMessage}</p>}
           {errorMessage && <p className="error-message">{errorMessage}</p>}
+      </div>
+      <div className='container'>
+        <h2>Search Notes</h2>
+        <div>
+          <input value={query} onChange={e => setQuery(e.target.value)} />
+          <button onClick={handleSearch}>Search</button>
+
+          {results.map(note => (
+            <div key={note.objectID}>
+              <h2>{note.title}</h2>
+              <p>{note.content}</p>
+            </div>
+          ))}
+        </div>
       </div>
       <NotesList notes={notes} />
       </section>

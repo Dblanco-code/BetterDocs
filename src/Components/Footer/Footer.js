@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { checkUser, logoutUser } from "../../Common/Services/AuthService";
-import "../../CSS/footer.css";
+import "../../Css/footer.css";
 
 const Footer = () => {
   const isAuthenticated = checkUser();
@@ -30,8 +30,8 @@ const Footer = () => {
           </li>
           <li className="footer-menu-item">
             {!isAuthenticated && (
-              <Link to="/auth/login" className="footer-menu-link">
-                Login
+              <Link to="/auth/" className="footer-menu-link">
+                Authentication
               </Link>
             )}
             {isAuthenticated && (

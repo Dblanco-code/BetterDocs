@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../CSS/usersList.css'; // Import the CSS file
+import '../../Css/usersList.css'; // Import the CSS file
 
 const UsersList = ({ users }) => {
   return (
