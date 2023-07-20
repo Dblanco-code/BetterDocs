@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { checkUser } from "../../Common/Services/AuthService";
-import "../../CSS/protectedRoute.css";
+import "../../Css/protectedRoute.css";
 
 const ProtectedRoute = ({ element: Component, ...rest }) => {
   console.log("element: ", Component);
