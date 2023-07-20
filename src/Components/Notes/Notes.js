@@ -82,12 +82,18 @@ const Notes = () => {
     setTitle(event.target.value);
   };
 
+  // // Handler to track changes to the content input text
+  // const onContentChangeHandler = (event) => {
+  //   event.preventDefault();
+  //   console.log(event.target.value);
+  //   // Continuously updating content to be added on submit
+  //   setContent(event.target.value);
+  // };
+
   // Handler to track changes to the content input text
-  const onContentChangeHandler = (event) => {
-    event.preventDefault();
-    console.log(event.target.value);
-    // Continuously updating content to be added on submit
-    setContent(event.target.value);
+  const onContentChangeHandler = (value) => {
+    console.log(value);
+    setContent(value);
   };
 
   const [query, setQuery] = useState('');
