@@ -6,12 +6,11 @@ import UsersList from './UsersList';
 const Users = () => {
   // Variables in the state to hold data
   const [users, setUsers] = useState([]);
-  const [user, setUser] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage] = useState('');
 
   // UseEffect to run when the page loads to
   // obtain async data and render
@@ -86,7 +85,7 @@ const Users = () => {
 
     return (
       <section>
-        {/* <div className="container">
+        <div className="container">
           <h2>Create a User</h2>
           <div>
             <div>
@@ -117,7 +116,7 @@ const Users = () => {
           </div>
           {successMessage && <p className="success-message">{successMessage}</p>}
           {errorMessage && <p className="error-message">{errorMessage}</p>}
-      </div> */}
+      </div>
       <UsersList users={users} />
       </section>
     );

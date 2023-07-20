@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {createNote, getAllNotes, removeNote, searchNotes} from "../../Common/Services/Notes"
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import NotesList from './NotesList';
 
 const Notes = () => {
@@ -26,6 +28,7 @@ const Notes = () => {
   useEffect(() => {
     // Check for add flag and make sure title and content state variables are defined
     if (title && content && add) {
+
       createNote(title, content).then((newNote) => {
         setAdd(false);
         // Add the newly created note to the notes array
@@ -49,11 +52,25 @@ const Notes = () => {
     }
   }, [title, content, notes, add, remove]);
 
+  const handleRemove = (noteId) => {
+    removeNote(noteId).then(() => {
+      console.log("Removed note with ID: ", noteId);
+      // Update the notes list by removing the note with the specified ID
+      setNotes((prevNotes) => prevNotes.filter((note) => note.id !== noteId));
+    });
+  };
+
   // Handler to handle event passed from child submit button
   const onClickHandler = (event) => {
     event.preventDefault();
-    // Trigger add flag to create note and
-    // re-render list with new note
+  
+    // Check if the title and content are empty
+    if (!title.trim() || !content.trim()) {
+      alert('Please fill in both title and content before creating a note.');
+      return; // Return early to prevent further execution
+    }
+  
+    // Trigger add flag to create note and re-render list with a new note
     setAdd(true);
   };
 
@@ -94,11 +111,13 @@ const Notes = () => {
               />
             </div>
             <div>
-              <textarea
-                placeholder="Content"
+              {/* Render the Quill editor with the content state */}
+              <ReactQuill
+                theme="snow"
                 value={content}
                 onChange={onContentChangeHandler}
-              ></textarea>
+                placeholder="Content"
+              />
             </div>
             <button type="submit" onClick={onClickHandler}>Create Note!</button>
           </div>
@@ -119,9 +138,13 @@ const Notes = () => {
           ))}
         </div>
       </div>
-      <NotesList notes={notes} />
+      <NotesList notes={notes} handleRemove={handleRemove} />
       </section>
     );
-}
-
-export default Notes;
+  };
+  
+  export default Notes;
+  
+  
+  
+  

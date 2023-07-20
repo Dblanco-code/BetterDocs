@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { checkUser, resetPassword } from "../../Common/Services/AuthService";
+import React, { useState } from "react";
+import { resetPassword } from "../../Common/Services/AuthService";
 import { useNavigate } from "react-router-dom";
 import "../../Css/authRegister.css";
 
