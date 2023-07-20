@@ -3,6 +3,11 @@ import {createNote, getAllNotes, removeNote, searchNotes} from "../../Common/Ser
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import NotesList from './NotesList';
+import * as Env from "../../environments";
+import algoliasearch from 'algoliasearch';
+
+const client = algoliasearch(Env.ALGOLIA_APPLICATION_ID, Env.ALGOLIA_ADMIN_API_KEY);
+const noteIndex = client.initIndex(Env.ALGOLIA_INDEX_NAME);
 
 const Notes = () => {
   // Variables in the state to hold data
@@ -52,12 +57,42 @@ const Notes = () => {
     }
   }, [title, content, notes, add, remove]);
 
-  const handleRemove = (noteId) => {
-    removeNote(noteId).then(() => {
+  // const handleRemove = (noteId) => {
+  //   removeNote(noteId).then(() => {
+  //     console.log("Removed note with ID: ", noteId);
+  //     // Update the notes list by removing the note with the specified ID
+  //     setNotes((prevNotes) => prevNotes.filter((note) => note.id !== noteId));
+
+  //     // Remove from Algolia index
+  //     noteIndex.deleteObject(noteId).then(({ objectID }) => {
+  //       console.log(`Note ${objectID} removed from Algolia index.`);
+  //     });
+  //   });
+  // };
+
+  const handleRemove = async (noteId) => {
+    try {
+      await removeNote(noteId);
       console.log("Removed note with ID: ", noteId);
+      
       // Update the notes list by removing the note with the specified ID
       setNotes((prevNotes) => prevNotes.filter((note) => note.id !== noteId));
-    });
+  
+      // Remove from Algolia index
+      const { objectID } = await noteIndex.deleteObject(noteId);
+      console.log(`Note ${objectID} removed from Algolia index.`);
+  
+      // Reindex notes
+      const response = await fetch('http://localhost:3001/reindex');
+      if (!response.ok) throw new Error('Reindexing failed.');
+      console.log('Reindexing complete.');
+
+      // Re-run the search query
+      handleSearch();
+  
+    } catch (error) {
+      console.error('Error during note removal:', error);
+    }
   };
 
   // Handler to handle event passed from child submit button
@@ -99,8 +134,24 @@ const Notes = () => {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   
+  // const handleSearch = () => {
+  //   searchNotes(query).then(setResults);
+  // };
+
   const handleSearch = () => {
-    searchNotes(query).then(setResults);
+    // Fetch request to trigger reindexing
+    fetch('http://localhost:3001/reindex', { method: 'GET' })
+      .then((response) => {
+        if (response.ok) {
+          console.log('Reindexing completed');
+          // Perform search after reindexing
+          return searchNotes(query);
+        } else {
+          throw new Error('Reindexing failed');
+        }
+      })
+      .then((searchResults) => setResults(searchResults))
+      .catch((error) => console.log('Error: ', error));
   };
 
     return (

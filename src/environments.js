@@ -4,5 +4,6 @@ module.exports = {
     PARSE_SERVER_URL: "https://parseapi.back4app.com",
     ALGOLIA_APPLICATION_ID: "9W3VNZQF07",
     ALGOLIA_ADMIN_API_KEY: "4e0b49c604027101981c48ee1b902ed8",
+    ALGOLIA_SEARCH_ONLY_API_KEY: "79f6829a51ef9858cc915ef0f6a7ad82",
     ALGOLIA_INDEX_NAME: "notes"
 }
