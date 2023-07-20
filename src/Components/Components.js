@@ -17,6 +17,7 @@ import Home from "./Home/Home.js"
 import Notes from "./Notes/Notes.js"
 import Footer from "./Footer/Footer.js";
 import Users from "./Users/Users.js";
+import Collab from "../LiveBlocks/Collab.tsx"
 
 // This component initializes protected routing and authentication
 export default function Components() {
@@ -30,6 +31,7 @@ export default function Components() {
                 <Route path="/auth/login" element={<AuthLogin />} />
                 <Route path="/auth/reset-password" element={<AuthResetPassword />} />
                 <Route path="/" element={<Home />} />
+                <Route path="/collab" element={<Collab/> } />
 
                 {/* Protected Routes */}
                 <Route
