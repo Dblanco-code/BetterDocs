@@ -1,32 +1,27 @@
 .auth-module {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
   }
   
-  .auth-button {
-    padding: 8px 20px;
-    font-size: 14px;
-    background-color: #2196f3;
-    color: #fff;
-    border: none;
-    border-radius: 100px;
-    cursor: pointer;
+  .auth-module li {
+    list-style: none;
     margin-bottom: 10px;
-    transition: background-color 0.3s ease;
   }
   
-  .auth-button:last-child {
-    margin-right: 0;
+  .auth-module li a {
+    padding: 8px 16px;
+    font-size: 14px;
+    color: black;
+    text-decoration: none;
+    border-radius: 4px;
   }
   
-  .auth-button:hover {
+  .auth-module li a:hover {
     background-color: #0d8bf1;
   }
   
-  .auth-button:active {
+  .auth-module li a:active {
     background-color: #0a6ad8;
   }
-
   

@@ -1,4 +1,4 @@
-import "../../CSS/home.css";
+import "../../Css/home.css";
 
 // Returns the main page of the website
 
