@@ -19,7 +19,8 @@ import Footer from "./Footer/Footer.js";
 import Users from "./Users/Users.js";
 import Collab from "../LiveBlocks/Collab.tsx"
 
-// This component initializes protected routing and authentication
+/* This component initializes protected routing and authentication */
+
 export default function Components() {
     return (
         <div>

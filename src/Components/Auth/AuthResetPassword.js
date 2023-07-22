@@ -3,6 +3,8 @@ import { resetPassword } from "../../Common/Services/AuthService";
 import { useNavigate } from "react-router-dom";
 import "../../Css/authRegister.css";
 
+/* This component returns the password reset page. */
+
 const AuthRegister = () => {
   const navigate = useNavigate();
 

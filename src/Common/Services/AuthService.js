@@ -1,3 +1,5 @@
+/* SERVICE FOR PARSE SERVER AUTHENTICATION OPERATIONS */
+
 import Parse from 'parse';
 
 export const createUser = (newUser) => {
@@ -72,7 +74,6 @@ export const resetPassword = (email, newPassword) => {
       alert(`Error: ${error.message}`);
     });
 };
-
 
 export const checkUser = () => {
   return Parse.User.current()?.authenticated;

@@ -4,6 +4,8 @@ import AuthForm from "./AuthForm";
 import { useNavigate } from "react-router-dom";
 import "../../Css/authRegister.css";
 
+/* This component returns the register page. */
+
 const AuthRegister = () => {
   const navigate = useNavigate();
 

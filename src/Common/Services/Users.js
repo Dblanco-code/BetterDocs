@@ -1,5 +1,6 @@
+/* SERVICE FOR PARSE SERVER OPERATIONS ON USER CLASS */
+
 import Parse from 'parse';
-/* SERVICE FOR PARSE SERVER OPERATIONS */
 
 // CREATE operation - new user with username, email, and password
 export const createUser = (username, email, password) => {
@@ -34,19 +35,3 @@ export const removeUser = (id) => {
     user.destroy();
   });
 };
-
-/* //READ operation - get info about user from Parse class User
-const getUser = async() => {
-    const User = Parse.Object.extend('User');
-    const query = new Parse.Query(User);
-    // You can also query by using a parameter of an object
-    // query.equalTo('objectId', 'xKue915KBG');
-    try {
-      const results = await query.find();
-      console.log('Users found:', results);
-      return results;
-      }
-    catch (error) {
-      console.error('Error while fetching User', error);
-    }
-} */
