@@ -4,6 +4,8 @@ import AuthForm from "./AuthForm";
 import { useNavigate } from "react-router-dom";
 import "../../Css/authlogin.css";
 
+/* This component returns the login page. */
+
 const AuthLogin = () => {
   const navigate = useNavigate();
 

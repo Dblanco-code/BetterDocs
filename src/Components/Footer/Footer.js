@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { checkUser, logoutUser } from "../../Common/Services/AuthService";
 import "../../Css/footer.css";
 
+/*  This is the footer component, which acts as navigation for the website.  */
+
 const Footer = () => {
   const isAuthenticated = checkUser();
 

@@ -1,6 +1,8 @@
 import React from "react";
 import "../../Css/authForm.css";
 
+/* This component is the form that can be used for either login or registration. */
+
 const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
 
   return (

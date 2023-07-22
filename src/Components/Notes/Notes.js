@@ -6,6 +6,7 @@ import NotesList from './NotesList';
 import * as Env from "../../environments";
 import algoliasearch from 'algoliasearch';
 
+// Initialize Algolia
 const client = algoliasearch(Env.ALGOLIA_APPLICATION_ID, Env.ALGOLIA_ADMIN_API_KEY);
 const noteIndex = client.initIndex(Env.ALGOLIA_INDEX_NAME);
 
@@ -17,8 +18,7 @@ const Notes = () => {
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage] = useState('');
 
-  // UseEffect to run when the page loads to
-  // obtain async data and render
+  // UseEffect to run when the page loads to obtain async data and render
   useEffect(() => {
     getAllNotes().then((notes) => {
       console.log(notes);
@@ -45,7 +45,7 @@ const Notes = () => {
 
     // Check if remove state variable is holding an ID
     if (remove.length > 0) {
-      //Filter the old notes list to take out selected note
+      // Filter the old notes list to take out selected note
       const newNotes = notes.filter((note) => note.id !== remove);
       setNotes(newNotes);
 
@@ -56,19 +56,6 @@ const Notes = () => {
       setRemove("");
     }
   }, [title, content, notes, add, remove]);
-
-  // const handleRemove = (noteId) => {
-  //   removeNote(noteId).then(() => {
-  //     console.log("Removed note with ID: ", noteId);
-  //     // Update the notes list by removing the note with the specified ID
-  //     setNotes((prevNotes) => prevNotes.filter((note) => note.id !== noteId));
-
-  //     // Remove from Algolia index
-  //     noteIndex.deleteObject(noteId).then(({ objectID }) => {
-  //       console.log(`Note ${objectID} removed from Algolia index.`);
-  //     });
-  //   });
-  // };
 
   const handleRemove = async (noteId) => {
     try {
@@ -117,14 +104,6 @@ const Notes = () => {
     setTitle(event.target.value);
   };
 
-  // // Handler to track changes to the content input text
-  // const onContentChangeHandler = (event) => {
-  //   event.preventDefault();
-  //   console.log(event.target.value);
-  //   // Continuously updating content to be added on submit
-  //   setContent(event.target.value);
-  // };
-
   // Handler to track changes to the content input text
   const onContentChangeHandler = (value) => {
     console.log(value);
@@ -133,10 +112,6 @@ const Notes = () => {
 
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
-  
-  // const handleSearch = () => {
-  //   searchNotes(query).then(setResults);
-  // };
 
   const handleSearch = () => {
     // Fetch request to trigger reindexing
